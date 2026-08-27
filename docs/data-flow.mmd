@@ -1,0 +1,53 @@
+```mermaid
+sequenceDiagram
+    participant U as 用户浏览器
+    participant F as FastAPI 后端
+    participant B as build_core.py
+    participant D as 磁盘 notes/
+    participant S as SQLite
+    participant H as Hermes API
+
+    Note over U,H: ① 首次加载（页面打开）
+    U->>F: GET /（SPA 首页）
+    F-->>U: 返回 index.html + JS/CSS
+    U->>F: GET /api/data
+    F->>B: build_index()
+    B->>D: 扫描所有 .md 文件
+    B->>B: 分类 + 提取标题 + 生成摘要
+    B-->>F: 返回索引数据（缓存60s）
+    F-->>U: JSON（88篇笔记 + 52 PDF + 分类）
+
+    Note over U,H: ② 搜索笔记
+    U->>F: GET /api/search?q=redis
+    F->>B: search_notes(payload, q)
+    B->>B: 全文匹配 + 标签过滤 + 打分排序
+    B-->>F: 搜索结果列表
+    F-->>U: JSON（命中笔记列表）
+
+    Note over U,H: ③ 阅读笔记
+    U->>F: GET /api/note/Redis运维实战笔记.md
+    F->>D: 读取 .md 文件内容
+    F-->>U: Markdown 原文（前端 marked 渲染）
+    U->>F: POST /api/data/save（收藏/已读标记）
+    F->>D: 原子写入 user_data.json
+
+    Note over U,H: ④ AI 对话（双后端）
+    U->>F: POST /api/agent/chat {message, session_id}
+    F->>S: 读取最近50条历史消息
+    F->>H: POST /v1/chat/completions（Hermes优先）
+    alt Hermes 可用
+        H-->>F: AI 回复
+    else Hermes 不可用
+        F->>H: POST pcl GLM API（兜底）
+        H-->>F: AI 回复
+    end
+    F->>S: 存入新消息（session + messages 表）
+    F-->>U: JSON {reply, backend, session_id}
+
+    Note over U,H: ⑤ 索引刷新
+    U->>F: POST /api/rebuild
+    F->>B: invalidate_cache()
+    B-->>F: 缓存清空
+    Note right of B: 下次 /api/data 自动重新扫描
+    F-->>U: 新索引数据
+```

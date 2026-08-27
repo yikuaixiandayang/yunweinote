@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>学习路径 × 学习计划 联动原型（方向 A+B）</title>
+<style>
+  :root{
+    --bg:#f4f6f9; --card:#ffffff; --line:#e4e8ee; --text:#1f2329; --sub:#6b7280;
+    --accent:#3b82f6; --accent-soft:#eff5ff; --accent-line:#bcd6ff;
+    --done:#10b981; --done-soft:#e7f8f1; --pending:#f59e0b; --pending-soft:#fef4e3;
+    --skip:#9ca3af; --skip-soft:#f3f4f6;
+    --shadow:0 1px 3px rgba(16,24,40,.06),0 1px 2px rgba(16,24,40,.04);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;
+       background:var(--bg);color:var(--text);line-height:1.6;padding:22px 26px 60px}
+
+  /* 顶栏 */
+  .topbar{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+  .brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:18px}
+  .brand .dot{width:11px;height:11px;border-radius:50%;background:var(--accent)}
+  .sub{color:var(--sub);font-size:13px;margin-bottom:20px}
+
+  /* 布局 */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+  @media(max-width:880px){.grid{grid-template-columns:1fr}}
+
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;
+         box-shadow:var(--shadow);overflow:hidden}
+  .panel-h{padding:14px 18px;border-bottom:1px solid var(--line);
+           display:flex;align-items:center;justify-content:space-between}
+  .panel-h h2{font-size:15px;font-weight:700}
+  .panel-h .tag{font-size:12px;color:var(--accent);background:var(--accent-soft);
+               border:1px solid var(--accent-line);padding:2px 9px;border-radius:999px}
+  .panel-b{padding:16px 18px}
+
+  /* 学习路径 步骤 */
+  .step{position:relative;padding:12px 14px 12px 46px;border:1px solid var(--line);
+        border-radius:10px;margin-bottom:12px;background:#fff;transition:.18s}
+  .step::before{content:"";position:absolute;left:20px;top:30px;bottom:-12px;width:2px;background:var(--line)}
+  .step:last-child::before{display:none}
+  .step .num{position:absolute;left:8px;top:12px;width:24px;height:24px;border-radius:50%;
+             background:var(--pending-soft);color:var(--pending);font-size:12px;font-weight:700;
+             display:flex;align-items:center;justify-content:center;border:1px solid var(--pending)}
+  .step.done .num{background:var(--done-soft);color:var(--done);border-color:var(--done)}
+  .step.done{border-color:#cdeede;background:var(--done-soft)}
+  .step .name{font-weight:600;font-size:14px}
+  .step .cat{font-size:12px;color:var(--sub);margin-top:2px}
+  .step .ms{font-size:12px;color:var(--accent);margin-top:6px;background:var(--accent-soft);
+            border:1px dashed var(--accent-line);border-radius:6px;padding:4px 8px;display:inline-block}
+  .step.linked{outline:2px solid var(--accent);outline-offset:1px}
+
+  /* 学习计划 卡片 */
+  .pcard{margin-bottom:18px}
+  .pcard .ph{font-size:13px;font-weight:700;color:var(--sub);margin:0 2px 9px;
+             display:flex;align-items:center;gap:7px}
+  .pcard .ph .ic{width:7px;height:7px;border-radius:2px;background:var(--accent)}
+  .item{display:flex;align-items:flex-start;gap:11px;padding:11px 13px;border:1px solid var(--line);
+        border-radius:10px;margin-bottom:9px;background:#fff;transition:.18s}
+  .item:hover{border-color:var(--accent-line)}
+  .item .body{flex:1;min-width:0}
+  .item .iname{font-weight:600;font-size:14px}
+  .item .meta{font-size:12px;color:var(--sub);margin-top:2px}
+  .item .from{display:inline-flex;align-items:center;gap:4px;margin-top:6px;font-size:11px;
+              color:var(--accent);background:var(--accent-soft);border:1px solid var(--accent-line);
+              padding:2px 8px;border-radius:999px;cursor:default}
+  .item .from::before{content:"↳"}
+  .btn{flex-shrink:0;border:1px solid var(--accent-line);background:var(--accent-soft);
+       color:var(--accent);font-size:12px;font-weight:600;padding:5px 11px;border-radius:7px;
+       cursor:pointer;transition:.15s}
+  .btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .item.done{background:var(--done-soft);border-color:#cdeede}
+  .item.done .iname{color:var(--done)}
+  .item.done .btn{display:none}
+
+  .month{display:flex;align-items:center;gap:10px;margin-top:4px}
+  .bar{flex:1;height:9px;border-radius:999px;background:var(--skip-soft);overflow:hidden}
+  .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#60a5fa);border-radius:999px}
+  .mlabel{font-size:12px;color:var(--sub);white-space:nowrap}
+
+  .note{margin-top:22px;background:#fffbeb;border:1px solid #fde68a;border-radius:10px;
+        padding:12px 15px;font-size:12.5px;color:#92400e}
+  .note b{color:#78350f}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--sub);margin:14px 2px 0}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .sw{width:11px;height:11px;border-radius:3px;display:inline-block}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><span class="dot"></span>运维笔记 · 学习系统</div>
+</div>
+<div class="sub">原型演示：方向 A（路径→计划 单向联动）+ 方向 B（计划完成度回流路径）。右侧每一项计划都标注其来源路径步骤，完成后路径进度自动推进。</div>
+
+<div class="grid">
+
+  <!-- 左：学习路径（地图） -->
+  <div class="panel">
+    <div class="panel-h">
+      <h2>🗺️ 学习路径（宏观地图）</h2>
+      <span class="tag">recommend_path</span>
+    </div>
+    <div class="panel-b">
+      <div id="path"></div>
+      <div class="legend">
+        <span><i class="sw" style="background:var(--done-soft);border:1px solid var(--done)"></i>已掌握</span>
+        <span><i class="sw" style="background:#fff;border:1px solid var(--pending)"></i>待学习</span>
+        <span><i class="sw" style="background:var(--accent)"></i>当前计划指向</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 右：学习计划（导航） -->
+  <div class="panel">
+    <div class="panel-h">
+      <h2>🧭 学习计划（今日导航）</h2>
+      <span class="tag">generate_study_plan</span>
+    </div>
+    <div class="panel-b">
+
+      <div class="pcard">
+        <div class="ph"><span class="ic"></span>今日（1–2 篇）</div>
+        <div id="daily"></div>
+      </div>
+
+      <div class="pcard">
+        <div class="ph"><span class="ic"></span>明日（下一步）</div>
+        <div id="tomorrow"></div>
+      </div>
+
+      <div class="pcard">
+        <div class="ph"><span class="ic"></span>本周（3–5 篇）</div>
+        <div id="weekly"></div>
+      </div>
+
+      <div class="pcard">
+        <div class="ph"><span class="ic"></span>本月主题 & 分类进度</div>
+        <div id="monthly"></div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="note">
+  <b>对比当前实现：</b>现在两个功能是<b>各自独立的 AI 调用</b>——学习计划不知道路径的顺序，可能挑出"顺序靠后"的笔记（顺序打架）。
+  原型里，今日=Nginx 反向代理、明日=Ansible、本周覆盖 Nginx→Ansible→Zabbix，<b>全部取自路径的"下一个未完成步骤"</b>，
+  且点"完成"后左侧路径第 3 步立即变绿——这就是 A（计划源自路径）+ B（回流路径）的闭环。
+</div>
+
+<script>
+// ── 模拟数据：学习路径（宏观顺序，由 recommend_path 产出）──
+const pathSteps = [
+  {step:1, name:"Linux 系统基础",            cat:"Linux系统基础",    done:true,  ms:"能独立排查系统级故障"},
+  {step:2, name:"Bond 网卡绑定实战",          cat:"网络通信",         done:true},
+  {step:3, name:"Nginx 反向代理与路径路由",    cat:"Web与中间件",      done:false, ms:"能独立搭建七层负载"},
+  {step:4, name:"Ansible 运维自动化",          cat:"CI-CD与自动化",   done:false, ms:"能用 playbook 批量装机"},
+  {step:5, name:"Zabbix 监控体系",            cat:"监控与可观测性",   done:false},
+  {step:6, name:"Docker 容器编排",            cat:"容器与编排",       done:false, ms:"能编排多容器应用"},
+];
+
+// ── 学习计划：全部"派生"自路径的未完成步骤（方向 A 核心）──
+const plan = {
+  daily:   [{fromStep:3, name:"Nginx 反向代理与路径路由", cat:"Web与中间件", reason:"路径第3步，承接已学的 Bond 网络基础"}],
+  tomorrow:[{fromStep:4, name:"Ansible 运维自动化",       cat:"CI-CD与自动化", reason:"路径第4步，本周里程碑前置"}],
+  weekly:  [
+    {fromStep:3, name:"Nginx 反向代理与路径路由", cat:"Web与中间件", reason:"路径第3步"},
+    {fromStep:4, name:"Ansible 运维自动化",       cat:"CI-CD与自动化", reason:"路径第4步"},
+    {fromStep:5, name:"Zabbix 监控体系",          cat:"监控与可观测性", reason:"路径第5步"},
+  ],
+  monthly: [
+    {cat:"Web与中间件",     target:3, srcSteps:[3]},
+    {cat:"CI-CD与自动化",   target:2, srcSteps:[4]},
+    {cat:"监控与可观测性",   target:2, srcSteps:[5]},
+    {cat:"容器与编排",       target:2, srcSteps:[6]},
+  ],
+};
+
+// 渲染路径
+function renderPath(){
+  const el = document.getElementById("path");
+  // 当前"下一个未完成步骤"高亮（计划指向处）
+  const nextStep = pathSteps.find(s=>!s.done)?.step;
+  el.innerHTML = pathSteps.map(s=>`
+    <div class="step ${s.done?'done':''} ${s.step===nextStep?'linked':''}" id="step-${s.step}">
+      <div class="num">${s.step}</div>
+      <div class="name">${s.name}</div>
+      <div class="cat">${s.cat}</div>
+      ${s.ms?`<div class="ms">🎯 里程碑：${s.ms}</div>`:""}
+    </div>`).join("");
+}
+
+// 渲染计划项（带"来自路径第N步"标注 + 完成按钮）
+function renderPlan(){
+  const build = (arr)=> arr.map((it,i)=>{
+    const done = pathSteps.find(s=>s.step===it.fromStep)?.done;
+    return `<div class="item ${done?'done':''}">
+      <div class="body">
+        <div class="iname">${it.name}</div>
+        <div class="meta">${it.cat} · ${it.reason}</div>
+        <span class="from">路径第 ${it.fromStep} 步</span>
+      </div>
+      <button class="btn" onclick="completeStep(${it.fromStep})">完成</button>
+    </div>`;
+  }).join("");
+
+  document.getElementById("daily").innerHTML   = build(plan.daily);
+  document.getElementById("tomorrow").innerHTML= build(plan.tomorrow);
+  document.getElementById("weekly").innerHTML  = build(plan.weekly);
+
+  // 本月分类进度（currentCount 由后端按 read 计算，此处用路径 done 近似演示）
+  const m = plan.monthly.map(m=>{
+    const cur = m.srcSteps.filter(st=>pathSteps.find(s=>s.step===st)?.done).length;
+    const pct = Math.round(cur/m.target*100);
+    return `<div style="margin-bottom:9px">
+      <div class="month">
+        <span class="mlabel" style="min-width:96px">${m.cat}</span>
+        <span class="bar"><i style="width:${pct}%"></i></span>
+        <span class="mlabel">${cur}/${m.target}</span>
+      </div></div>`;
+  }).join("");
+  document.getElementById("monthly").innerHTML = m;
+}
+
+// 方向 B：完成计划项 → 回流路径对应步骤为 done
+function completeStep(step){
+  const s = pathSteps.find(x=>x.step===step);
+  if(s) s.done = true;
+  renderPath();
+  renderPlan();
+}
+
+renderPath();
+renderPlan();
+</script>
+</body>
+</html>

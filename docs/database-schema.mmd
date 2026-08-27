@@ -1,0 +1,42 @@
+```mermaid
+erDiagram
+    sessions ||--o{ messages : "一对多"
+    file_docs }o--|| folder_docs : "独立表"
+
+    sessions {
+        TEXT id PK "会话ID（如 default）"
+        TEXT title "会话标题"
+        REAL created_at "创建时间戳"
+        REAL last_active "最后活跃时间"
+        INTEGER message_count "消息总数"
+    }
+
+    messages {
+        INTEGER id PK "自增主键"
+        TEXT session_id FK "关联 sessions.id"
+        TEXT role "user / assistant"
+        TEXT content "消息内容"
+        REAL created_at "时间戳"
+        TEXT backend "hermes / pcl"
+        INTEGER token_count "token 数"
+    }
+
+    file_docs {
+        TEXT path PK "文件路径"
+        TEXT kind "script / folderfile"
+        TEXT doc "AI解读结果JSON"
+        REAL created_at "创建时间"
+    }
+
+    folder_docs {
+        TEXT name PK "文件夹名"
+        TEXT doc "AI解读结果JSON"
+        REAL created_at "创建时间"
+    }
+
+    user_notes {
+        TEXT key PK "笔记标识"
+        TEXT note "用户备注"
+        REAL updated_at "更新时间"
+    }
+```

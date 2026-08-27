@@ -1,0 +1,341 @@
+{
+  "agentSettings": {
+    "apiBase": "https://llmapi.pcl.ac.cn/v1",
+    "apiKey": "sk-n0lnEztd5d7qJArbWzn4Wd6Ray9s1wvLfWlCz8g01S2KPGun",
+    "model": "GLM-5.2",
+    "hermesUrl": "http://172.22.40.153:8642/v1",
+    "hermesKey": "hermes_sk_7f3a9c2e1b8d4a6e5c0f2a9d3e7b1c4f8a6d2e9b",
+    "backend": "auto"
+  },
+  "recommendPath": {
+    "version": 2,
+    "pathVersion": "pv-20260826-2224",
+    "steps": [
+      {
+        "id": "step-001",
+        "noteId": "f7b978bda325",
+        "title": "Linux 实用命令行工具指南",
+        "order": 1,
+        "status": "in_progress",
+        "reason": "全栈运维的起点，掌握磁盘、rsync、监控等核心命令行工具是后续所有运维操作的基础",
+        "estimatedHours": 3
+      },
+      {
+        "id": "step-002",
+        "noteId": "953804e96488",
+        "title": "SSH 公钥认证与签名体系笔记",
+        "order": 2,
+        "status": "pending",
+        "reason": "远程服务器管理的安全基石，Ansible、Git、CI/CD 等后续工具均依赖 SSH 免密通道",
+        "estimatedHours": 2
+      },
+      {
+        "id": "step-003",
+        "noteId": "c34b0a2e98fa",
+        "title": "Nginx 反向代理与路径路由实战笔记",
+        "order": 3,
+        "status": "pending",
+        "reason": "Web 层运维核心技能，反向代理和路径路由是生产环境流量管理的第一步",
+        "estimatedHours": 3
+      },
+      {
+        "id": "step-004",
+        "noteId": "93f570f0392a",
+        "title": "Docker 容器学习笔记",
+        "order": 4,
+        "status": "pending",
+        "reason": "容器化是现代运维的分水岭，掌握 Docker 后才能理解 K8s 和 CI/CD 中的镜像流水线",
+        "estimatedHours": 4
+      },
+      {
+        "id": "step-005",
+        "noteId": "3d3b5a7af0c2",
+        "title": "MySQL 运维手册：备份恢复与主从维护指南",
+        "order": 5,
+        "status": "pending",
+        "reason": "数据库是运维高频场景，掌握 MySQL 主从与备份恢复是中间件运维和监控的前提",
+        "estimatedHours": 4
+      },
+      {
+        "id": "step-006",
+        "noteId": "3e14c29d2ac2",
+        "title": "Prometheus 监控部署笔记",
+        "order": 6,
+        "status": "pending",
+        "reason": "可观测性体系的核心组件，从命令行监控过渡到系统化指标采集，构建第一个监控栈",
+        "estimatedHours": 4
+      },
+      {
+        "id": "step-007",
+        "noteId": "0274b8d98dd6",
+        "title": "Ansible运维自动化学习笔记",
+        "order": 7,
+        "status": "pending",
+        "reason": "从手动运维到自动化运维的关键跃迁，SSH 基础已具备，学 Ansible 实现批量配置管理",
+        "estimatedHours": 4
+      },
+      {
+        "id": "step-008",
+        "noteId": "cf808ee6cc09",
+        "title": "Jenkins Pipeline 实战笔记",
+        "order": 8,
+        "status": "pending",
+        "reason": "CI/CD 流水线核心，结合已学的 Docker 和 Git 知识，打通从代码到部署的自动化链路",
+        "estimatedHours": 3
+      },
+      {
+        "id": "step-009",
+        "noteId": "41f809f303f2",
+        "title": "Kubernetes 集群部署笔记",
+        "order": 9,
+        "status": "pending",
+        "reason": "容器编排进阶，在 Docker 基础上学习 K8s 集群部署，进入云原生运维领域",
+        "estimatedHours": 5
+      },
+      {
+        "id": "step-010",
+        "noteId": "c42ebfca6cdb",
+        "title": "Keycloak 统一认证学习与实战笔记",
+        "order": 10,
+        "status": "pending",
+        "reason": "安全防护进阶，掌握统一认证与 SSO，整合 Nginx、Grafana 等已学组件的安全接入",
+        "estimatedHours": 4
+      }
+    ],
+    "milestones": [
+      "完成第2步后能安全远程管理多台 Linux 服务器，具备运维操作底座",
+      "完成第4步后能容器化部署应用并理解镜像生命周期，进入现代运维门槛",
+      "完成第6步后拥有完整的 Web+容器+数据库+监控单节点运维能力",
+      "完成第8步后能搭建 CI/CD 流水线实现代码到部署的自动化，达到中级运维水平",
+      "完成第10步后具备从基础设施到应用层到安全层的全栈运维能力"
+    ],
+    "gaps": [
+      "TCP/IP 网络基础知识薄弱，建议在学习 Nginx 前补充 TCP 连接管理与抓包分析",
+      "Shell 脚本编写能力未显式覆盖，Ansible 和 CI/CD 实践中会频繁用到",
+      "存储基础知识（RAID、LVM、NFS）未纳入路径，在 K8s 持久化存储场景会暴露缺口",
+      "iptables/防火墙规则配置未覆盖，安全防护环节建议补充网络层防护知识"
+    ],
+    "lastUpdated": "2026-08-26T22:24:25"
+  },
+  "studyPlan": {
+    "version": 2,
+    "goal": "",
+    "lastUpdated": "2026-08-26T22",
+    "lastUpdatedBy": "rule",
+    "daily": {
+      "date": "2026-08-26",
+      "items": [
+        {
+          "noteId": "f7b978bda325",
+          "noteName": "Linux 实用命令行工具指南",
+          "pathStepId": "step-001",
+          "source": "path",
+          "reason": "当前步骤核心笔记，掌握磁盘、rsync、监控等高频命令行工具是所有后续运维操作的基础，作为全栈运维的第一块基石",
+          "estimatedHours": 3,
+          "status": "pending",
+          "doneAt": null
+        },
+        {
+          "noteId": "9066e5dd9bae",
+          "noteName": "Vim 实用技巧学习笔记",
+          "pathStepId": "step-001",
+          "source": "path",
+          "reason": "Vim 是命令行环境下最核心的文本编辑工具，学完命令行工具后补齐 Vim 操作能力，后续编辑配置文件、编写脚本都离不开它",
+          "estimatedHours": 2,
+          "status": "pending",
+          "doneAt": null
+        },
+        {
+          "noteId": "e6c253c4309a",
+          "noteName": "Shell 脚本实战笔记",
+          "pathStepId": "step-001",
+          "source": "path",
+          "reason": "Shell 脚本是命令行工具的组合与自动化延伸，在掌握常用命令和 Vim 编辑后学习脚本编写，实现从手动敲命令到自动化执行的跃迁",
+          "estimatedHours": 3,
+          "status": "pending",
+          "doneAt": null
+        }
+      ]
+    },
+    "tomorrow": {
+      "date": "2026-08-27",
+      "items": [
+        {
+          "noteId": "9454fd7df42a",
+          "noteName": "TCP连接管理笔记",
+          "pathStepId": "step-002",
+          "source": "path",
+          "reason": "SSH 建立在 TCP 连接之上，掌握 TCP 三次握手、状态流转是理解 SSH 远程连接底层机制的前置基础",
+          "estimatedHours": 2,
+          "status": "pending",
+          "doneAt": null
+        },
+        {
+          "noteId": "953804e96488",
+          "noteName": "SSH 公钥认证与签名体系笔记",
+          "pathStepId": "step-002",
+          "source": "path",
+          "reason": "当前步骤核心笔记，掌握 SSH 公钥认证原理与密钥管理，是远程服务器安全管理、Git 远程操作和 Ansible 自动化的共同前置条件",
+          "estimatedHours": 2,
+          "status": "pending",
+          "doneAt": null
+        },
+        {
+          "noteId": "b352143da9f1",
+          "noteName": "TLS 协议原理与握手过程详解",
+          "pathStepId": "step-002",
+          "source": "path",
+          "reason": "TLS 与 SSH 同属传输层安全协议，学完 SSH 后对比 TLS 握手过程，能建立完整的加密通信知识体系，也为后续 Nginx HTTPS 配置打基础",
+          "estimatedHours": 3,
+          "status": "pending",
+          "doneAt": null
+        }
+      ]
+    },
+    "weekly": {
+      "weekStart": "2026-08-24",
+      "items": [
+        {
+          "noteId": "c34b0a2e98fa",
+          "noteName": "Nginx 反向代理与路径路由实战笔记",
+          "pathStepId": "step-003",
+          "source": "path",
+          "reason": "当前步骤核心笔记，反向代理与路径路由是 Nginx 运维最常用的高频技能，掌握 proxy_pass、location 路径匹配规则后能直接应用于生产环境",
+          "estimatedHours": 3,
+          "status": "pending",
+          "doneAt": null
+        },
+        {
+          "noteId": "ec8ebbc7211d",
+          "noteName": "Nginx 静态文件服务与 autoindex 目录浏览实战笔记",
+          "pathStepId": "step-003",
+          "source": "path",
+          "reason": "同属 Nginx 实战系列，静态文件服务与 autoindex 是反向代理的常见后端搭配场景，学完路由后补齐静态资源服务能力，形成 Nginx 基础闭环",
+          "estimatedHours": 2,
+          "status": "pending",
+          "doneAt": null
+        },
+        {
+          "noteId": "3d3058922e42",
+          "noteName": "Nginx 高级课程：扩容与高效",
+          "pathStepId": "step-003",
+          "source": "path",
+          "reason": "Nginx 高级课程涵盖扩容与高效配置，在前两篇掌握基础反向代理和静态服务后进阶负载均衡与性能调优，完成 Nginx 从入门到生产级的完整链路",
+          "estimatedHours": 3,
+          "status": "pending",
+          "doneAt": null
+        },
+        {
+          "noteId": "e05d3cd23a84",
+          "noteName": "Docker应用迁移到Kubernetes注意事项笔记",
+          "pathStepId": "step-004",
+          "source": "path",
+          "reason": "路径步骤「Docker 容器学习笔记」的规则匹配",
+          "estimatedHours": 2,
+          "status": "pending",
+          "doneAt": null
+        },
+        {
+          "noteId": "3d3b5a7af0c2",
+          "noteName": "MySQL 运维手册：备份恢复与主从维护指南",
+          "pathStepId": "step-005",
+          "source": "path",
+          "reason": "当前步骤核心笔记，掌握 MySQL 备份恢复与主从维护是数据库运维最核心的技能，主从架构也是后续 Redis 主从、读写分离的基础",
+          "estimatedHours": 4,
+          "status": "pending",
+          "doneAt": null
+        }
+      ]
+    },
+    "monthly": {
+      "monthStart": "2026-08-01",
+      "theme": "Linux系统基础、CI/CD与自动化 专项强化",
+      "items": [
+        {
+          "category": "Linux系统基础",
+          "targetCount": 5,
+          "reason": "路径本周聚焦方向",
+          "currentCount": 0
+        },
+        {
+          "category": "CI/CD与自动化",
+          "targetCount": 5,
+          "reason": "路径本周聚焦方向",
+          "currentCount": 0
+        },
+        {
+          "category": "Web与中间件",
+          "targetCount": 5,
+          "reason": "路径本周聚焦方向",
+          "currentCount": 0
+        },
+        {
+          "category": "容器与编排",
+          "targetCount": 4,
+          "reason": "路径本周聚焦方向",
+          "currentCount": 1
+        }
+      ]
+    },
+    "history": []
+  },
+  "favs": [],
+  "read": [
+    "2b2baf65fe77",
+    "p186079f5e8",
+    "95da11b3db33",
+    "7e366fc78a2d",
+    "93f570f0392a",
+    "0274b8d98dd6",
+    "6201ca6ae8af",
+    "c34b0a2e98fa",
+    "e05d3cd23a84"
+  ],
+  "opens": {
+    "93f570f0392a": 10,
+    "2b2baf65fe77": 1,
+    "p186079f5e8": 1,
+    "95da11b3db33": 2,
+    "7e366fc78a2d": 1,
+    "0274b8d98dd6": 1,
+    "6201ca6ae8af": 1,
+    "c34b0a2e98fa": 1,
+    "e05d3cd23a84": 1
+  },
+  "collapsed": [
+    "容器与编排",
+    "Web与中间件",
+    "数据库与存储",
+    "监控与可观测性",
+    "网络通信",
+    "安全防护",
+    "CI/CD与自动化",
+    "编程与构建",
+    "Linux系统基础",
+    "其他",
+    "参考资料(PDF)"
+  ],
+  "searchHist": [
+    "ansible",
+    "ansibl",
+    "ansib",
+    "ansi",
+    "ans",
+    "a",
+    "an'si'b'le",
+    "an'si'b'l",
+    "an'si'b",
+    "an'si",
+    "平台",
+    "ping't",
+    "ping't'y",
+    "ping't'ya",
+    "ping",
+    "pin",
+    "pi",
+    "p",
+    "云",
+    "yun"
+  ],
+  "viewHist": []
+}

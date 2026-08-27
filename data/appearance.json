@@ -1,0 +1,8 @@
+{
+  "bgOpacity": 0.4,
+  "bgBlur": 0.0,
+  "bgBrightness": 1.0,
+  "bgFit": "cover",
+  "bgEnabled": false,
+  "glassEnabled": false
+}

@@ -1,0 +1,47 @@
+```mermaid
+graph TB
+    subgraph 浏览器["🌐 浏览器（Vue3 SPA）"]
+        ROUTER["Hash 路由<br/>#/ /#/scripts /#/folders<br/>/#/graph /#/learning /#/agent"]
+        STORES["Pinia Stores<br/>notes · agent · theme<br/>userData · appearance"]
+        COMP["组件层<br/>IndexPage · AgentPage<br/>GraphPage · ScriptsPage..."]
+    end
+
+    subgraph 后端["⚙️ FastAPI 后端（:8000）"]
+        MAIN["main.py<br/>路由注册 + SPA托管 + 静态文件"]
+        NOTES_R["routers/notes.py<br/>/api/data · /api/search<br/>/api/note · /api/rebuild"]
+        AGENT_R["routers/agent.py<br/>/api/agent/chat<br/>/api/agent/summarize..."]
+        FOLDER_R["routers/folders.py<br/>/api/folders · 文件浏览"]
+        SCRIPT_R["routers/scripts.py<br/>/api/scripts"]
+        APPEAR_R["routers/appearance.py<br/>/api/appearance"]
+        BUILD["build_core.py<br/>扫描·分类·搜索·推荐<br/>内存缓存 TTL=60s"]
+    end
+
+    subgraph 数据层["💾 数据层"]
+        NOTES_DIR["notes/<br/>88篇 Markdown 笔记"]
+        REF_DIR["references/<br/>52份 PDF 参考"]
+        USER_DATA["data/user_data.json<br/>收藏·已读·搜索历史·agent配置"]
+        SQLITE["data/agent_memory.db<br/>SQLite WAL 模式<br/>sessions · messages<br/>file_docs · folder_docs"]
+    end
+
+    subgraph 外部AI["🤖 AI 后端（双引擎）"]
+        HERMES["Hermes Agent API<br/>172.22.40.153:8642/v1<br/>优先（自带tool_call+记忆）"]
+        PCL["pcl GLM API<br/>llmapi.pcl.ac.cn/v1<br/>兜底"]
+    end
+
+    COMP --> ROUTER
+    ROUTER --> STORES
+    STORES -->|fetch /api/*| MAIN
+    MAIN --> NOTES_R
+    MAIN --> AGENT_R
+    MAIN --> FOLDER_R
+    MAIN --> SCRIPT_R
+    MAIN --> APPEAR_R
+    NOTES_R --> BUILD
+    BUILD -->|扫描磁盘| NOTES_DIR
+    BUILD -->|扫描磁盘| REF_DIR
+    NOTES_R -->|读写| USER_DATA
+    AGENT_R -->|持久记忆| SQLITE
+    AGENT_R -->|对话请求| HERMES
+    AGENT_R -->|兜底| PCL
+    FOLDER_R -->|读写| USER_DATA
+```

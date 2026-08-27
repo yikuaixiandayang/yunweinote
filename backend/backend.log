@@ -1,0 +1,128 @@
+INFO:     Started server process [27876]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:51903 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51911 - "POST /api/data/save HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52033 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52106 - "GET /api/agent/refresh-all/progress HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52108 - "GET /api/scripts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52117 - "GET /api/agent/refresh-all/progress HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52119 - "GET /api/folders HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52165 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52170 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52198 - "GET /api/folders HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52235 - "GET /api/folders HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52277 - "GET /api/folders HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52329 - "GET /api/folders HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52359 - "GET /api/folders HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52403 - "GET /api/folders HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52481 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52510 - "GET /api/agent/config HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52512 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52516 - "GET /api/agent/session/default HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52519 - "GET /api/agent/sessions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52532 - "GET /api/folders HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52635 - "GET /api/folders HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52723 - "GET /api/folders HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52751 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52798 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52807 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52818 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52819 - "GET /api/agent/config HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52822 - "GET /api/agent/session/default HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52825 - "GET /api/agent/sessions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52847 - "GET /api/folders HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52867 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52934 - "GET /api/folders HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60814 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60825 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60919 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60922 - "GET /assets/index-TpSSLxDL.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60919 - "GET /assets/index-D-MX8KfX.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60919 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60919 - "POST /api/data/save HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61052 - "GET /api/insights HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61072 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61165 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61165 - "GET /assets/index-DnKSMeea.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61166 - "GET /assets/index-DDKxKzwW.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61165 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61165 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61165 - "GET /assets/index-DnKSMeea.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:61165 - "GET /assets/index-DDKxKzwW.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:61165 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61210 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61211 - "GET /assets/index-DDKxKzwW.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61210 - "GET /assets/index-DnKSMeea.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61210 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61210 - "POST /api/data/save HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61300 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61328 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61460 - "GET /api/insights HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61565 - "GET /api/agent/refresh-all/progress HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61565 - "GET /api/folders HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61565 - "GET /assets/src-7c9GY_LZ.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61570 - "GET /assets/dispatch-1efKFLvg.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61571 - "GET /assets/timer-CmKznpQO.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61572 - "GET /assets/src-DaVOMBCA.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61573 - "GET /assets/src-CcqiDt9-.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61576 - "GET /assets/src-DG0c3ZuF.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61570 - "GET /assets/src-DZ-BT-Tr.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61570 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61570 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61570 - "GET /api/agent/refresh-all/progress HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61570 - "GET /api/scripts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61570 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61915 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61915 - "GET /assets/index-DnKSMeea.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61916 - "GET /assets/index-DDKxKzwW.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61915 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61915 - "POST /api/data/save HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61948 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61948 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61948 - "POST /api/data/save HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62325 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62510 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62513 - "GET /assets/index-DDKxKzwW.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:62510 - "GET /assets/index-DnKSMeea.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:62510 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62648 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62648 - "GET /assets/index-DnKSMeea.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:62649 - "GET /assets/index-DDKxKzwW.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:62649 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62698 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62699 - "GET /assets/index-DDKxKzwW.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:62698 - "GET /assets/index-DnKSMeea.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:62698 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62743 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62743 - "GET /assets/index-DnKSMeea.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62744 - "GET /assets/index-DDKxKzwW.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62743 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62743 - "POST /api/data/save HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62784 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62784 - "GET /assets/index-DnKSMeea.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62785 - "GET /assets/index-DDKxKzwW.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62784 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62784 - "POST /api/data/save HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63182 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63335 - "HEAD / HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:63385 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63406 - "POST /api/rebuild HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63629 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63629 - "GET /assets/index-BV4ehY7u.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63630 - "GET /assets/index-DDKxKzwW.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63629 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63645 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63645 - "GET /assets/index-BV4ehY7u.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63648 - "GET /assets/index-DDKxKzwW.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63645 - "GET /api/data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63721 - "GET /assets/index-DDKxKzwW.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:63721 - "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:63935 - "POST /api/data/save HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63935 - "POST /api/data/save HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64466 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64466 - "GET /assets/index-D7WReDBv.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64469 - "GET /assets/index-DDKxKzwW.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64466 - "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:64466 - "GET /api/data HTTP/1.1" 200 OK
